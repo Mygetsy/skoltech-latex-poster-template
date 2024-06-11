@@ -1,0 +1,13 @@
+%%% Math packages
+\usepackage{physics, siunitx}
+\usepackage{isomath}
+
+%%% Bold symbols
+\newcommand{\bv}{\vb*{v}}
+
+%%% underbraces
+\NewDocumentCommand{\myunderbracetext}{m}{\text{#1}\\} % for internal use
+\NewDocumentCommand\myunderbrace{ O{\int} m >{\SplitList{\\}}m }
+{% two mandatory arguments: 2 - formula and 3 - caption delimited by \\
+    \underbrace{\vphantom{#1}#2}_{\substack{\ProcessList{#3}{\myunderbracetext}}}
+}
